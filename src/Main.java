@@ -4,7 +4,18 @@ import it.polito.appeal.traci.SumoTraciConnection;
 
 void main() {
 
-    String sumoBinary = "Resources/sumo-gui.exe";
+    String sumoBinary;
+    String os = System.getProperty("os.name");
+    if (os.toLowerCase().contains("windows")) {
+        sumoBinary = "Resources/sumo-gui.exe";
+    }
+    else {
+        sumoBinary = "Resources/sumo-gui";
+    }
+    System.out.println("User is running: " + os);
+    System.out.println("Thus the binary path is: " + sumoBinary);
+
+
     String configFile = "Resources/test4.sumocfg";
 
     //SumoTraciConnection connection = new SumoTraciConnection(sumoBinary, configFile);
