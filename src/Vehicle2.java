@@ -8,21 +8,24 @@ public class Vehicle2 {
     SumoTraciConnection con;
 
     public Vehicle2(SumoTraciConnection con) {
-        id = "f_0";
+        id = "t_0";
         this.con = con;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         try {
-            return (int)con.do_job_get(Vehicle.getSpeed(id));
+            return (double)con.do_job_get(Vehicle.getSpeed(id));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     public void setSpeed(int x) {
-        x = 50;
-        Vehicle.setSpeed(id, x);
+        try {
+            con.do_job_set(Vehicle.setSpeed(id, 10));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
