@@ -41,7 +41,7 @@ void main() {
             step++;
         }
     } catch (Exception e) {
-        System.out.println("Verbindung fehlgeschlagen: " + e.getMessage());
+        System.out.println("Connection failed: " + e.getMessage());
     } finally {
         connection.close();
     }

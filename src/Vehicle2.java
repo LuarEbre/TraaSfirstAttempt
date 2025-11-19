@@ -14,7 +14,7 @@ public class Vehicle2 {
 
     public double getSpeed() {
         try {
-            return (double)con.do_job_get(Vehicle.getSpeed(id));
+            return (double)con.do_job_get(Vehicle.getSpeed(id)); // vehicle.getspeed returns SumoCommand
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
