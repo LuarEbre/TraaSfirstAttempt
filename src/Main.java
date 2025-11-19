@@ -18,6 +18,13 @@ void main() {
         connection.runServer();
         System.out.println("Verbindung erfolgreich: Simulationsschritt ausgeführt.");
         int step = 1;
+
+        //----------------
+        Vehicle2 v2 = new Vehicle2(connection);
+        v2.setSpeed(50);
+        System.out.println("speed war:" + v2.getSpeed());
+        //-----------------
+
         while (step <= 36) {
             connection.do_timestep();
             //SumoCommand simTime = Simulation.getTime();
