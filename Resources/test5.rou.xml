@@ -8,4 +8,5 @@
     <vType id="t_0" vClass="passenger" length="5.0" maxSpeed="13.9" accel="2.5" decel="4.5"/>
     <!-- Routes -->
     <route id="r1" edges="E0 E1 E2 E3"/>
+    <route id="r2" edges="E0 E1 E2 E3"/>
 </routes>

@@ -6,7 +6,7 @@ import de.tudresden.sumo.cmd.Vehicle;
 void main() {
 
     String configFile = "Resources/test5.sumocfg";
-    String configFile2= "Resources/2.sumocfg";
+    String configFile2= "Resources/test6.sumocfg";
 
     Vehicle2[] cars = new Vehicle2[50];
 
@@ -24,7 +24,7 @@ void main() {
         connection.addOption("delay", "50");
         connection.addOption("start", "true");
         connection.addOption("quit-on-end", "true");
-        connection.runServer();
+        connection.runServer(8813);
         System.out.println("Connected to Sumo.");
         int step = 0;
 
@@ -75,9 +75,19 @@ void main() {
         connection2.addOption("delay", "100");
         connection2.addOption("start", "true");
         connection2.addOption("quit-on-end", "true");
-        connection2.runServer();
-        for (int i = 0; i < 360; i++) {
+        connection2.runServer(8814);
+        for (int i = 0; i < 3600; i++) {
             connection2.do_timestep();
+            if (i == 0) {
+                for (int j = 0; j < 50; j++) {
+                    connection2.do_job_set(Vehicle.addFull("v2_" + j, "r_4", "grey_car", // type: grey_car, in rou.xml color = grey
+                            "now", "0", "0", "max",
+                            "current", "max", "current", "",
+                            "", "", 0, 0)
+                    );
+                } // basically the same as flow cars?
+            }
+
         }
     } catch (Exception e) {
         System.out.println("Connection failed: " + e.getMessage());
