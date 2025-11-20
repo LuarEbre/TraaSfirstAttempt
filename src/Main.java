@@ -6,6 +6,8 @@ import de.tudresden.sumo.cmd.Vehicle;
 void main() {
 
     String configFile = "Resources/test5.sumocfg";
+    String configFile2= "Resources/2.sumocfg";
+
     Vehicle2[] cars = new Vehicle2[50];
 
     // Select Windows (.exe) or UNIX binary based on static function Util.getOSType()
@@ -49,6 +51,12 @@ void main() {
                     System.out.println("Speed for car  " + cars[0].getID() + " is: " + cars[0].getSpeed()); // testing first car
                 }
             }
+
+            if (step == 50) {
+                if (cars[15] != null) {
+                    System.out.println("SPEED FOR CAR " + cars[15].getID() + " IS: " + cars[15].getSpeed());
+                }
+            }
             double timeSeconds = (double)connection.do_job_get(Simulation.getTime()); // could be replaced by a method
             System.out.println("Time: " + timeSeconds);
 
@@ -60,5 +68,22 @@ void main() {
     } finally {
         connection.close();
     }
+
+    // changing maps after connection is closed
+    SumoTraciConnection connection2 = new SumoTraciConnection(sumoBinary, configFile2);
+    try {
+        connection2.addOption("delay", "100");
+        connection2.addOption("start", "true");
+        connection2.addOption("quit-on-end", "true");
+        connection2.runServer();
+        for (int i = 0; i < 360; i++) {
+            connection2.do_timestep();
+        }
+    } catch (Exception e) {
+        System.out.println("Connection failed: " + e.getMessage());
+    }  finally {
+        connection2.close();
+    }
+
 }
 

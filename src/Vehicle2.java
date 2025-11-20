@@ -1,11 +1,16 @@
 import de.tudresden.sumo.cmd.Simulation;
 import de.tudresden.sumo.cmd.Vehicle;
 import it.polito.appeal.traci.SumoTraciConnection;
+//import java.awt.Color;
 
 
 public class Vehicle2 {
     String id;
+    String type;
     SumoTraciConnection con;
+    boolean marked;
+    //Color color;
+    // attribute for spawning on routes (edges, lanes)
 
     public Vehicle2(String id , SumoTraciConnection con) {
         this.id = id;
