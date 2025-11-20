@@ -7,8 +7,8 @@ public class Vehicle2 {
     String id;
     SumoTraciConnection con;
 
-    public Vehicle2(SumoTraciConnection con) {
-        id = "t_0";
+    public Vehicle2(String id , SumoTraciConnection con) {
+        this.id = id;
         this.con = con;
     }
 
@@ -20,7 +20,7 @@ public class Vehicle2 {
         }
     }
 
-    public void setSpeed(int x) {
+    public void setSpeed() {
         try {
             con.do_job_set(Vehicle.setSpeed(id, 10));
         } catch (Exception e) {
@@ -28,4 +28,7 @@ public class Vehicle2 {
         }
     }
 
+    public String getID() {
+        return id;
+    }
 }
