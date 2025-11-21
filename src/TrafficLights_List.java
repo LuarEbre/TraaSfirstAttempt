@@ -3,14 +3,13 @@ import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Trafficlight;
 import java.util.List;
 import java.util.LinkedList;
-import de.tudresden.sumo.objects.SumoStringList;
 
 
-public class TL_List {
+public class TrafficLights_List {
     private final List<TrafficWrap> TL_list = new LinkedList<>();
     private final SumoTraciConnection con;
 
-    public TL_List(SumoTraciConnection con) {
+    public TrafficLights_List(SumoTraciConnection con) {
         this.con = con;
         try {
             SumoStringList list = (SumoStringList) con.do_job_get(Trafficlight.getIDList()); // returns string array

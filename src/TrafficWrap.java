@@ -12,6 +12,7 @@ public class TrafficWrap {
         this.id = id;
         this.conn = conn;
     }
+
     public TrafficWrap(){
     }
 
