@@ -7,7 +7,7 @@ import de.tudresden.sumo.cmd.Trafficlight;
 
 
 void main() {
-
+    // Test comment for branch
     String configFile = "Resources/test5.sumocfg";
     String configFile2= "Resources/test6.sumocfg";
 
@@ -16,7 +16,7 @@ void main() {
     // Select Windows (.exe) or UNIX binary based on static function Util.getOSType()
     String sumoBinary = Util.getOSType().equals("Windows")
             ? "Resources/sumo-gui.exe" // or sumo.exe to start without gui
-            : "Resources/sumo-gui";
+            : "/usr/lib/python3.13/site-packages/sumo/bin/sumo-gui";
 
     System.out.println(sumoBinary);
 
