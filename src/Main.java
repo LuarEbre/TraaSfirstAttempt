@@ -1,7 +1,10 @@
+//import de.tudresden.sumo.cmd.Gui;
 import de.tudresden.sumo.cmd.Simulation;
-import de.tudresden.sumo.util.SumoCommand;
+//import de.tudresden.sumo.util.SumoCommand;
 import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Vehicle;
+import de.tudresden.sumo.cmd.Trafficlight;
+
 
 void main() {
 
@@ -18,7 +21,7 @@ void main() {
     System.out.println(sumoBinary);
 
     SumoTraciConnection connection = new SumoTraciConnection(sumoBinary, configFile);
-
+/*
     try {
         // Connection has been established
         connection.addOption("delay", "50");
@@ -28,7 +31,7 @@ void main() {
         System.out.println("Connected to Sumo.");
         int step = 0;
 
-        Vehicle2 v = null;
+        Vehicle2 v;
 
         while (step < 200) {
             connection.do_timestep();
@@ -68,9 +71,14 @@ void main() {
     } finally {
         connection.close();
     }
-
+*/
     // changing maps after connection is closed
     SumoTraciConnection connection2 = new SumoTraciConnection(sumoBinary, configFile2);
+
+    //TrafficWrap tl1 = new TrafficWrap("J9", connection2);
+    TrafficWrap test = new TrafficWrap();
+    TL_List list1; //list of tl
+
     try {
         connection2.addOption("delay", "100");
         connection2.addOption("start", "true");
@@ -78,6 +86,7 @@ void main() {
         connection2.runServer(8814);
         for (int i = 0; i < 3600; i++) {
             connection2.do_timestep();
+            list1 = new TL_List(connection2);
             if (i == 0) {
                 for (int j = 0; j < 50; j++) {
                     connection2.do_job_set(Vehicle.addFull("v2_" + j, "r_4", "grey_car", // type: grey_car, in rou.xml color = grey
@@ -87,6 +96,10 @@ void main() {
                     );
                 } // basically the same as flow cars?
             }
+            //int phaseIndex = (int) connection2.do_job_get(Trafficlight.getPhase("J9"));
+            //System.out.println("Phase " + phaseIndex);
+                test = list1.getTL_action("J9");
+                System.out.println("Phase " + test.getPhaseNumber());
 
         }
     } catch (Exception e) {

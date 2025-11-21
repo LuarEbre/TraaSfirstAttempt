@@ -2,6 +2,7 @@
   <library name="TraaS">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Resources/TraaS.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Gui/guitest.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
