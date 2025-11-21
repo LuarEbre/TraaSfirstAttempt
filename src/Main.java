@@ -3,7 +3,7 @@ import de.tudresden.sumo.util.SumoCommand;
 import it.polito.appeal.traci.SumoTraciConnection;
 
 void main() {
-
+    // Test comment for branch
     String sumoBinary = "Resources/sumo.exe";
     String configFile = "Resources/2.sumocfg";
 
