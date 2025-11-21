@@ -4,7 +4,7 @@ import it.polito.appeal.traci.SumoTraciConnection;
 import de.tudresden.sumo.cmd.Vehicle;
 
 void main() {
-
+    // Test comment for branch
     String configFile = "Resources/test5.sumocfg";
     String configFile2= "Resources/test6.sumocfg";
 
