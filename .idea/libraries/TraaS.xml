@@ -2,6 +2,7 @@
   <library name="TraaS">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Resources/TraaS.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Resources/jdom-2.0.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
